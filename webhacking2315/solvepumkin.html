@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <title>Background_Web</title>
+        <link rel = "stylesheet" href="css/style.css">
+        <script src="js/text.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1><a href="index.html">Webhacking</a></h1>
+                <div class="nav">
+                    <ul>
+                        <li>
+                            <div class="dropdown_B">
+                                <button class="dropbtn_B">Background_Web</button>
+                                <div class="dropdown-content_B">
+                                <a href = "HTTPandHTTPS.html">HTTP/HTTPS</a>
+                                <a href = "Web.html">Web</a></div>
+                            </div>
+                        </li>
+
+                        <li><div class="dropdown_C">
+                            <button class="dropbtn_C">Cookie&Session</button>
+                            <div class="dropdown-content_C">
+                            <a href="Cookie&Session.html">Cookie&Session</a>
+                            <a href="SOP.html">SOP</a></div>
+                        </div>
+                        </li>
+
+                        <li><div class="dropdown_Q">
+                            <button class="dropbtn_Q">QUIZ</button>
+                            <div class="dropdown-content_Q">
+                            <a href="quiz_HTTP&HTTPS.html">HTTP/HTTPS</a>
+                            <a href="quiz_web.html">Web</a>
+                            <a href="quiz_Cookie&Session.html">Cookie&Session</a>
+                            <a href="quiz_SOP.html">SOP</a>
+                            <a href="pumkin.html">Console</a>
+                        </div>
+                        </div>
+                        </li>
+
+                        <li><div id='toggleBG' onclick="darkmode()">
+                            <button id='toggleFG' onclick="darkmode()"></button>
+                        </div></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="section" id="section">
+                <h2 >Console Solve</h2>
+                <p>위의 코드를 입력하면 클릭 이벤트를 발생하면 counter를 1 증가시켜준다.<br>
+                    Console에 <br><img src="img/solve1.png"><br> 을 입력하면 클릭 이벤트를 발생시키지 않더라도<br>pumkin의 숫자가 10000에서 9999로 줄어드는 것을 볼 수 있다.<br>
+                    따라서 우리는 반복문을 이용하여 이벤트를 발생시킬 수 있다.<br>
+                    <img src="img/solve2.png"><br><br><br><br>
+                 </p>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <title>Background_Web</title>
+        <link rel = "stylesheet" href="css/style.css">
+        <script src="js/text.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1><a href="index.html">Webhacking</a></h1>
+                <div class="nav">
+                    <ul>
+                        <li>
+                            <div class="dropdown_B">
+                                <button class="dropbtn_B">Background_Web</button>
+                                <div class="dropdown-content_B">
+                                <a href = "HTTPandHTTPS.html">HTTP/HTTPS</a>
+                                <a href = "Web.html">Web</a></div>
+                            </div>
+                        </li>
+
+                        <li><div class="dropdown_C">
+                            <button class="dropbtn_C">Cookie&Session</button>
+                            <div class="dropdown-content_C">
+                            <a href="Cookie&Session.html">Cookie&Session</a>
+                            <a href="SOP.html">SOP</a></div>
+                        </div>
+                        </li>
+
+                        <li><div class="dropdown_Q">
+                            <button class="dropbtn_Q">QUIZ</button>
+                            <div class="dropdown-content_Q">
+                            <a href="quiz_HTTP&HTTPS.html">HTTP/HTTPS</a>
+                            <a href="quiz_web.html">Web</a>
+                            <a href="quiz_Cookie&Session.html">Cookie&Session</a>
+                            <a href="quiz_SOP.html">SOP</a>
+                            <a href="pumkin.html">Console</a>
+                        </div>
+                        </div>
+                        </li>
+
+                        <li><div id='toggleBG' onclick="darkmode()">
+                            <button id='toggleFG' onclick="darkmode()"></button>
+                        </div></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section" id="section">
+                <h2>Same Origin Policy</h2>
+                <p> 브라우저가 웹 서비스에 접속할 때 브라우저는 자동으로 쿠키를 헤더에 포함시켜 요청을 보낸다고 했다. 
+                    하지만 이용자가 악의적인 페이지를 접속했을 때, 페이지가 자바스크립트를 사용해 이용자의 SNS 웹 서비스로 요청을 보낸다면 
+                    어떻게 될까? 브라우저는 요청을 보낼 때 헤더에 해당 웹 서비스 쿠키를 포함시킬 것이다. 
+                    따라서 자바스크립트로 요청을 보낸 페이지는 로그인된 이용자의 SNS 응답을 받을 것이다. 
+                    이에 더해 마음대로 페이지 접속자의 SNS에 글을 올리거나, 삭제하고, SNS 메신저를 읽는 것도 가능할 것이다. <br><br>
+                </p>
+                <img src="img/sop1.jpg"><br><br>
+                <h2>Same Origin Policy (SOP)</h2>
+                <p>
+                    이용자가 웹 서비스에 접속할 때, 브라우저는 해당 웹 서비스에 접속할 때, 
+                    브라우저는 해당 웹 서비스에서 사용하는 인증 정보인 쿠키를 HTTP 요청에 포함시켜 전달한다. 
+                    이 특징은 직접 접속하는 것에만 한정되지 않는다. 브라우저는 웹 리소스를 통해 간접적으로 타 사이트에 접근 할 때도 
+                    인증 정보인 쿠키를 함께 전송하는 특징을 가지고 있다. 따라서, 클라이언트 입장에서는 가져온 데이터를 악의적인 페이지에서 
+                    읽을 수 없도록 해야한다. 이것이 바로 브라우저의 보안 메커니즘인 동일 출처 정책 (Same Origin Policy, SOP)이다.
+                </p>
+                <h2>Same Origin Policy의 오리진(Origin) 구분 방법</h2>
+                <p>
+                    오리진은 프로토콜(protocel, Scheme), 포트(Port), 호스트(Host)로 구성된다. 
+                    구성 요소가 모두 일치해야 동일한 오리진이라고 한다. https://same-origin.com/ 과 아래의 URL을 비교했을 때 결과이다.
+                </p>
+                <h2>URL예시</h2>
+                <p>
+                    https://same-origin.com/frame.html	Same Origin	Path만 다름<br>
+                    http://same-origin.com/frame.html	Cross Origin	Scheme이 다름<br>
+                    https://cross.same-origin.com/frame.html	Cross Origin	Host가 다름<br>
+                    https://same-origin.com:1234/	Cross Origin	Port가 다름<br>
+                </p>
+                <h2>Cross Origin 데이터 읽기/쓰기</h2>
+                <p>외부 출처에서 불러온 데이터를 읽으려고 할 때는 오류가 발생해 읽지 못하지만 읽는 것 외에 데이터를 쓰는 것은 문제없이 작동한다. 
+                    즉, 아래와 같은 코드는 오류가 발생하지 않는다.
+                    <br>
+                </p>
+                <h2>Cross Origin Resource Sharing (CORS)</h2>
+                <p>
+                    브라우저가 SOP에 구애 받지 않고 외부 출처에 대한 접근을 허용해주는 경우가 존재한다. 
+                    예를 들면, 이미지나 자바스크립트, CSS 등의 리소스를 불러오는 &lt;img&gt; &lt;style&gt; &lt;script&gt; 등의 태그는 SOP의 영향을 받지 않는다. 
+                    이 경우들 외에도 웹 서비스에서 동일 출처 정책인 SOP를 완화하여 다른 출처의 데이터를 처리 해야 하는 경우도 있다. 
+                    이 경우에는 교차 출처 리소스 공유 (Cross Origin Recource Sharing, CORS)를 사용한다. 교차 출처의 자원을 공유하는 방법은 CORS와 관련된 HTTP 헤더를 추가하여 전송하는 방법을 사용한다. 
+                    교차 출처 리소스 공유(Cross Origin Resouce Sharing, CORS)는 HTTP 헤더에 기반하여 Cross Origin 간에 리소스를 공유하는 방법이다. 발신측에서 CORS 헤더를 설정해 요청하면, 수신측에서 헤더를 구분해 정해진 규칙에 맞게 데이터를 가져갈 수 있도록 설정한다. 
+                </p>
+                <h2>JSON with Padding(JSONP)</h2>
+                <p>
+                    이미지나 자바스크리트, CSS 등의 리소스는 SOP에 구애받지 않고 외부 출처에 대해 접근을 허용한다고 했는데 
+                    JSONP 방식은 이러한 특징을 이용해 &lt;script&gt; 태그로 Cross Origin를 불러온다. 
+                    하지만 &lt;script&gt;태그 내에서는 데이터를 자바스크립트의 코드로 인식하기 때문에 Callback 함수를 이용해야한다. 
+                    Cross Origin에 요청할 때 callback 파라미터에 어떤 함수로 받아오는 데이터를 핸들링할지 넘겨주면, 
+                    대상 서버는 전달된 Callback으로 데이터를 감싸 응답한다. 과거에 사용하던 방법을 현재는 권장하지 않는다.<br><br><br><br>
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

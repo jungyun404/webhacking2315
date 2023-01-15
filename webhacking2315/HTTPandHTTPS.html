@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <title>Background_Web</title>
+        <link rel = "stylesheet" href="css/style.css">
+        <script src="js/text.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1><a href="index.html">Webhacking</a></h1>
+                <div class="nav">
+                    <ul>
+                        <li>
+                            <div class="dropdown_B">
+                                <button class="dropbtn_B">Background_Web</button>
+                                <div class="dropdown-content_B">
+                                <a href = "HTTPandHTTPS.html">HTTP/HTTPS</a>
+                                <a href = "Web.html">Web</a></div>
+                            </div>
+                        </li>
+
+                        <li><div class="dropdown_C">
+                            <button class="dropbtn_C">Cookie&Session</button>
+                            <div class="dropdown-content_C">
+                            <a href="Cookie&Session.html">Cookie&Session</a>
+                            <a href="SOP.html">SOP</a></div>
+                        </div>
+                        </li>
+
+                        <li><div class="dropdown_Q">
+                            <button class="dropbtn_Q">QUIZ</button>
+                            <div class="dropdown-content_Q">
+                            <a href="quiz_HTTP&HTTPS.html">HTTP/HTTPS</a>
+                            <a href="quiz_web.html">Web</a>
+                            <a href="quiz_Cookie&Session.html">Cookie&Session</a>
+                            <a href="quiz_SOP.html">SOP</a>
+                            <a href="pumkin.html">Console</a>
+                        </div>
+                        </div>
+                        </li>
+
+                        <li><div id='toggleBG' onclick="darkmode()">
+                            <button id='toggleFG' onclick="darkmode()"></button>
+                        </div></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section" id="section">
+                <h2>HTTP/HTTPS</h2>
+                <p> 컴퓨터의 모든 데이터는 0과 1로 구성됩니다. 
+                    지금 보고 있는 글도 사실은 0과 1의 집합입니다. 
+                    “사과”가 사과를 가리키는 데 약속이 필요하듯, 0과 1로 우리의 문자를 표현하는 것도 일종의 약속 덕분입니다. 
+                    이런 약속들을 특별히 인코딩(Encoding) 표준이라고 부르는데, 대표적으로 아스키(Ascii)와 유니코드(Unicode)가 있습니다.
+                    컴퓨터가 개발된 초기에는 각 문자권마다 고유의 인코딩 표준을 사용했습니다. 
+                    영어는 아스키, 한글은 CP-949, EUC-KR 등을 사용했습니다. 
+                    그런데 이러한 방식은 호환성 측면에서, 국제 소프트웨어를 개발하려는 회사에 큰 부담이 됐습니다. 
+                    가끔 소프트웨어를 실행했을 때 글자가 🆡🆡🆡 등으로 출력되는 것이 인코딩이 호환되지 않아 발생하는 문제입니다.
+
+                    이러한 어려움을 해결하고자 유니코드라는 새로운 표준이 만들어졌습니다. 
+                    “Uni(하나의)”라는 접두사가 나타내듯, 유니코드는 모든 언어의 문자를 하나의 표준에 담겠다는 목표로 제정되었습니다. 
+                    유니코드에서 한 문자는 최대 32개의 비트로 표현됩니다. 32비트로 표현할 수 있는 정보의 가짓수는 2^{32}, 대략 42억 개입니다. 
+                    전 세계의 문자를 표현하고도 남을 넓은 공간입니다. 
+                    그래서 최근에는 한글, 한자, 히라가나, 가타카나, 알파벳과 같은 문자 외에 각종 이모지(Emoji)들도 유니코드에 포함되고 있습니다.<br><br>
+                </p>
+                <h2>통신프로토콜</h2>
+                <p>
+                    웹 서버에 있는 리소스를 클라이언트가 받아 보려면, 클라이언트는 웹에게 특정 리소스를 지정하여 제공해달라고 요청해야 합니다. 
+                    그러면 서버가 해당 요청을 이해하고, 대응되는 동작을 통해 클라이언트에게 리소스를 반환합니다. 
+                    여기서 클라이언트의 행위를 요청(Request), 서버의 행위를 응답(Response)이라고 합니다.
+
+                    프로토콜(Protocol)은 위와 같이 규격화된 상호작용에 적용되는 약속을 이릅니다. 
+                    일상생활의 상호작용은 대부분 관습 또는 에티켓이라는 형태의 느슨한 프로토콜을 따릅니다. 
+                    통화할 때는 보통 “여보세요”로 시작해서 본론을 말하고 “끊어”, “바이” 등으로 통화를 끝맺습니다. 
+                    그런데 때에 따라서는 본론을 말하기 전에 서로 신원을 밝히거나, 아예 인사를 생략할 수 있습니다. 
+                    맥락을 아는 사람만 이해할 수 있는 애매한 표현을 사용할 수도 있습니다. 
+                    이처럼 일상에서 사람과 사람이 통신할 때는 관습을 따르되 약간의 융통성을 발휘해도 정보를 교환하는 데 큰 문제가 발생하지 않습니다.
+
+                    반면, 컴퓨터와 통신할 때는 비교적 엄격한 프로토콜을 사용해야 합니다. 
+                    왜냐하면, 컴퓨터가 해석의 융통성을 발휘하게 하는 것은 매우 어렵고, 
+                    이 과정에서 오히려 통신 오류가 발생할 가능성을 높일 수 있기 때문입니다. 
+                    그래서 많은 컴퓨터 통신 프로토콜은 각 통신 주체가 교환하는 데이터(이하 메시지)를 명확히 해석할 수 있도록 문법(syntax)을 포함합니다. 
+                    일반적으로 이 문법에 어긋나는 메시지는 잘못 전송된 것으로 취급하여 무시됩니다.
+
+                    현재까지 제정된 표준 통신 프로토콜에는 네트워크 통신의 기초가 되는 TCP/IP, 
+                    웹 애플리케이션이 사용하는 HTTP, 파일을 주고받을 때 사용하는 FTP 등 매우 많은 종류가 있습니다.
+                </p>
+                <h2>HTTP</h2>
+                <p>
+                    HTTP(Hyper Text Transfer Protocol)란 서버와 클라이언트의 데이터 교환을 요청(Request)과 응답(Response) 형식으로 정의한 
+                    프로토콜입니다. 팀 버너스 리(Team Berners-Lee)와 그의 팀이 제정한 이후, 현대 웹 서비스의 바탕이 되는 프로토콜로 자리 잡았습니다.
+                    
+                    HTTP의 기본 메커니즘은 클라이언트가 서버에게 요청하면, 서버가 응답하는 것입니다. 
+                    웹 서버는 HTTP 서버를 HTTP 서비스 포트에 대기시킵니다. 이 포트는 일반적으로 TCP/80 또는 TCP/8080입니다. 
+                    클라이언트가 서비스 포트에 HTTP 요청을 전송하면, 이를 해석하여 적절한 응답을 반환합니다.
+                    다음은 요청과 응답의 예시입니다.
+                </p>
+                <div class="box">
+                    <strong>Request</strong><br>
+                    GET /index.thml HTTP/1.1<br>
+                    Host: ~~<br>
+                    Connection: keep-alive<br>
+                    User-Agent: ~~<br>
+                </div>
+                <div class="box">
+                    <strong>Response</strong><br>
+                    HTTP/1.1 200 OK<br>
+                    Server: Apache/2.4.29 (Ubuntu)<br>
+                    Content-Length:61<br>
+                    Content: Keep-Alive<br>
+                    ~~문서내용~<br>
+                </div>
+                <h2>HTTP 메시지</h2>
+                <p>
+                    : HTTP 메시지에는 클라이언트가 전송하는 HTTP 요청, 그리고 서버가 반환하는 HTTP 응답있습니다. 
+                    기능과 세부 구조에서는 차이가 있지만, 이들은 HTTP 헤드와 바디로 구성됩니다.<br><br>
+
+                    <strong>HTTP 헤드</strong> <br>
+                    헤드의 각 줄은 CRLF로 구분되며, 첫 줄은 시작 줄(Start-line), 나머지 줄은 헤더(Header)라고 부릅니다.
+                    헤드의 끝은 CRLF 한줄로 나타냅니다. 시작 줄의 역할은 요청과 응답에서 큰 차이가 있습니다. 
+                    헤더는 필드와 값으로 구성되며 HTTP 메시지 또는 바디의 속성을 나타냅니다. 하나의 HTTP 메시지에는 0개 이상의 헤더가 있을 수 있습니다.<br><br>
+
+                    <strong>HTTP 바디</strong> <br>
+                    HTTP 바디는 CRLF 뒤, 모든 줄을 말한다. 클라이언트나 서버에게 전송하려는 데이터가 바디에 있습니다.<br>
+                </p>
+                <img src="img/HTTP1.png">
+                <h2>HTTPS(HTTP over Secure socket layer)이란?</h2>
+                <p>TLS(Transport Layer Security) 프로토콜을 도입하여 HTTP의 문제점을 보완한 것입니다. 
+                    TLS는 서버와 클라이언트 사이에 오가는 모든 HTTP 메시지를 암호화합니다. 
+                    공격자가 중간에 메시지를 탈취하더라도 이를 해석하는 것을 불가능하며, 결과적으로 HTTP 통신이 도청과 변조로부터 보호됩니다. 
+                    TLS의 기반이 되는 공개 키 암호 시스템(Public Key Standard, PKCS) 및 대칭 키 암호(Symmetric Key Crypt ography) 입니다.<br><br><br><br>
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

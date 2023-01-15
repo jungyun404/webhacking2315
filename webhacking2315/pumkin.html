@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <title>Background_Web</title>
+        <link rel = "stylesheet" href="css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1><a href="index.html">Webhacking</a></h1>
+                <div class="nav">
+                    <ul>
+                        <li>
+                            <div class="dropdown_B">
+                                <button class="dropbtn_B">Background_Web</button>
+                                <div class="dropdown-content_B">
+                                <a href = "HTTPandHTTPS.html">HTTP/HTTPS</a>
+                                <a href = "Web.html">Web</a></div>
+                            </div>
+                        </li>
+
+                        <li><div class="dropdown_C">
+                            <button class="dropbtn_C">Cookie&Session</button>
+                            <div class="dropdown-content_C">
+                            <a href="Cookie&Session.html">Cookie&Session</a>
+                            <a href="SOP.html">SOP</a></div>
+                        </div>
+                        </li>
+
+                        <li><div class="dropdown_Q">
+                            <button class="dropbtn_Q">QUIZ</button>
+                            <div class="dropdown-content_Q">
+                            <a href="quiz_HTTP&HTTPS.html">HTTP/HTTPS</a>
+                            <a href="quiz_web.html">Web</a>
+                            <a href="quiz_Cookie&Session.html">Cookie&Session</a>
+                            <a href="quiz_SOP.html">SOP</a>
+                            <a href="pumkin.html">Console</a>
+                        </div>
+                        </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="section" id="section">
+                <h2>Console 실습하기!</h2>
+                <p>호박을 만번만 클릭하면 정답을 얻을 수 있습니다!!<br>
+                    정답을 입력해주세요!<br>
+                    Hint! console을 이용하면 빠르게 해결 할 수 있습니다<br><br></p>
+                <img src="img/pumkin.png" onclick="count()" id="target">
+                <div class="count" id="count"></div>
+                <div class="ans" id="ans"></div>
+                <input type="text" id="input_ans">
+                <button class="ans_b" onclick="cheak()">정답입력</button>
+
+                <button onclick="location.href='solvepumkin.html'">풀이</button>
+            </div>
+            
+        <script src="js/pumkin.js"></script>
+    </body>
+</html>
